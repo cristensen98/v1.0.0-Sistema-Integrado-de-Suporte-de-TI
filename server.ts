@@ -20,7 +20,7 @@ const __dirname = path.dirname(__filename);
 const dbPath = process.env.DB_PATH || 'sisti.db';
 const db = new Database(dbPath);
 db.pragma('foreign_keys = ON');
-const PORT = 3000;
+const PORT = process.env.PORT ? parseInt(process.env.PORT) : 3000;
 const JWT_SECRET = process.env.JWT_SECRET || 'sisti-super-secret-key-2024';
 
 if (process.env.NODE_ENV === 'production' && JWT_SECRET === 'sisti-super-secret-key-2024') {
